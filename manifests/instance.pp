@@ -19,7 +19,7 @@ define local_git_repo::instance (
 
   # Construct the extended ACLs for the Git repository
   vcsrepo { $target_dir:
-    ensure   => 'latest',
+    ensure   => 'bare',
     provider => 'git',
     source   => $git_url,
     user     => 'root',
