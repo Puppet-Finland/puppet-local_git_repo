@@ -25,4 +25,14 @@ Example usage:
                           "g:${group}:rwx", ],
     }
 
+To share the Git repository with git-daemon using Git protocol (currently
+Ubuntu/Debian only):
 
+    class { 'local_git_repo::gitdaemon':
+      base_path => '/var/lib/repos',
+      directory => '/var/lib/repos/myrepo',
+    }
+
+The *directory* parameter is the directory whitelist. Directories not on the
+whitelist will not be exported by git-daemon. Based on git-daemon documentation
+it should accept a string with multiple directories separated by a space.
